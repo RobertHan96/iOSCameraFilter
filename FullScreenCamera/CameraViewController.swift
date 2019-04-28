@@ -127,8 +127,16 @@ class CameraViewController: UIViewController {
     
     @IBAction func capturePhoto(_ sender: UIButton) {
         // TODO: photoOutput의 capturePhoto 메소드
-
-
+        // orientation
+        // photooutput
+        
+        let videoPreviewLayerOrientation = self.previewView.videoPreviewLayer.connection?.videoOrientation
+        sessionQueue.async {
+            let connection = self.photoOutput.connection(with: .video)
+            connection?.videoOrientation = videoPreviewLayerOrientation!
+            let setting = AVCapturePhotoSettings()
+            self.photoOutput.capturePhoto(with: setting, delegate: self)
+        }
     }
     
     
@@ -216,7 +224,9 @@ extension CameraViewController {
 extension CameraViewController: AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         // TODO: capturePhoto delegate method 구현
-        
-        
+        guard error == nil else { return }
+        guard let imageData = photo.fileDataRepresentation() else { return }
+        guard let image = UIImage(data: imageData) else { return }
+        self.savePhotoLibrary(image: image)
     }
 }

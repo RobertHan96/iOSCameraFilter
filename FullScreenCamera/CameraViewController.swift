@@ -142,6 +142,19 @@ class CameraViewController: UIViewController {
     
     func savePhotoLibrary(image: UIImage) {
         // TODO: capture한 이미지 포토라이브러리에 저장
+        PHPhotoLibrary.requestAuthorization { status in
+            if status == .authorized {
+                PHPhotoLibrary.shared().performChanges({
+                    PHAssetChangeRequest.creationRequestForAsset(from: image)
+                }, completionHandler: { (_, error) in
+                    DispatchQueue.main.async {
+                        self.photoLibraryButton.setImage(image, for: .normal)
+                    }
+                })
+            } else {
+                print(" error to save photo library")
+            }
+        }
     }
 }
 

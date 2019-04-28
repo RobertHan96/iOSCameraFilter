@@ -12,6 +12,20 @@ import Photos
 
 class CameraViewController: UIViewController {
     // TODO: 초기 설정 1
+    // - captureSession
+    // - AVCaptureDeviceInput
+    // - AVCapturePhotoOuput
+    // - Dispatch Custom
+    // AVCaptureDevice, DiscoverySession
+
+    let captureSession = AVCaptureSession()
+    var videoDeviceInput: AVCaptureDeviceInput!
+    let photoOutput = AVCapturePhotoOutput()
+    
+    let sessionQueue = DispatchQueue(label: "session queue")
+    let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified)
+    
+    
 
     @IBOutlet weak var photoLibraryButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!

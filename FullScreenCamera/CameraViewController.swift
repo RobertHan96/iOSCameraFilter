@@ -145,16 +145,22 @@ extension CameraViewController {
         captureSession.commitConfiguration()
     }
     
-    
-    
     func startSession() {
         // TODO: session Start
-
+        if !captureSession.isRunning {
+            sessionQueue.async {
+                self.captureSession.startRunning()
+            }
+        }
     }
     
     func stopSession() {
         // TODO: session Stop
-        
+        if captureSession.isRunning {
+            sessionQueue.async {
+                self.captureSession.stopRunning()
+            }
+        }
     }
 }
 

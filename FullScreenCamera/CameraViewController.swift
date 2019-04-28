@@ -113,8 +113,16 @@ class CameraViewController: UIViewController {
     
     func updateSwitchCameraIcon(position: AVCaptureDevice.Position) {
         // TODO: Update ICON
-        
-        
+        switch position {
+        case .front:
+            let image = #imageLiteral(resourceName: "ic_camera_front")
+            switchButton.setImage(image, for: .normal)
+        case .back:
+            let image = #imageLiteral(resourceName: "ic_camera_rear")
+            switchButton.setImage(image, for: .normal)
+        default:
+            break
+        }
     }
     
     @IBAction func capturePhoto(_ sender: UIButton) {

@@ -12,7 +12,6 @@ import Photos
 
 class CameraViewController: UIViewController {
     // TODO: 초기 설정 1
-    
 
     @IBOutlet weak var photoLibraryButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!

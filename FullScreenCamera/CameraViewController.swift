@@ -85,11 +85,30 @@ class CameraViewController: UIViewController {
             
             // update captureSession
             
-            
-            
+            if let newDevice = newVideoDevice {
+                do {
+                    let videoDeviceInput = try AVCaptureDeviceInput(device: newDevice)
+                    self.captureSession.beginConfiguration()
+                    self.captureSession.removeInput(self.videoDeviceInput)
+                    
+                    // add new device input
+                    if self.captureSession.canAddInput(videoDeviceInput) {
+                        self.captureSession.addInput(videoDeviceInput)
+                        self.videoDeviceInput = videoDeviceInput
+                    } else {
+                        self.captureSession.addInput(self.videoDeviceInput)
+                    }
+                
+                    self.captureSession.commitConfiguration()
+                    
+                    DispatchQueue.main.async {
+                        self.updateSwitchCameraIcon(position: preferredPosition)
+                    }
+                } catch let error {
+                    print("error occured while creating device input: \(error.localizedDescription)")
+                }
+            }
         }
-        
-        
     }
     
     func updateSwitchCameraIcon(position: AVCaptureDevice.Position) {

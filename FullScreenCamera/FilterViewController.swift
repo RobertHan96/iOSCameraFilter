@@ -1,8 +1,13 @@
 import UIKit
 
-class FilterViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class FilterViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     var ciFilterNames : [String] = [
-    "CISepiaTone"
+        "CIColorCrossPolynomial", "CIColorCube", "CIColorCubeWithColorSpace",
+        "CIColorInvert", "CIColorMap", "CIColorMonochrome","CIColorPosterize",
+        "CIFalseColor", "CIMaskToAlpha", "CIMaximumComponent", "CIMinimumComponent",
+        "CIPhotoEffectChrome", "CIPhotoEffectFade", "CIPhotoEffectInstant",
+        "CIPhotoEffectMono", "CIPhotoEffectNoir", "CIPhotoEffectProcess",
+        "CIPhotoEffectTonal", "CIPhotoEffectTransfer", "CISepiaTone"
     ]
     
     @IBOutlet weak var filterImgPreview: UIImageView!
@@ -17,6 +22,9 @@ class FilterViewController : UIViewController, UICollectionViewDelegate, UIColle
     
     func setupUI() {
         filterImgPreview.image = image
+        filterPreviews.delegate = self
+        filterPreviews.dataSource = self
+        filterPreviews.register(UINib(nibName: "FilterPreViewCell", bundle: nil), forCellWithReuseIdentifier: "filterPreViewCell")
     }
     
     func display(image : UIImage, filterName : String) {
@@ -31,6 +39,20 @@ class FilterViewController : UIViewController, UICollectionViewDelegate, UIColle
                 filterImgPreview.image = image
             }
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let filterPreViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "filterPreViewCell", for: indexPath) as! FilterPreViewCell
+        filterImgPreview.image = filterPreViewCell.filterImgPreView.image
+        self.view.layoutIfNeeded()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellWidth: CGFloat = (collectionView.bounds.width)/3
+        let cellHeight: CGFloat = (collectionView.bounds.height)
+
+        return CGSize(width: cellWidth, height: cellHeight)
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  FullScreenCamera
-//
-//  Created by joonwon lee on 28/04/2019.
-//  Copyright © 2019 com.joonwon. All rights reserved.
-//
-
 import UIKit
 import AVFoundation
 import Photos
@@ -17,7 +9,6 @@ class CameraViewController: UIViewController {
     // - AVCapturePhotoOuput
     // - Dispatch Custom
     // AVCaptureDevice, DiscoverySession
-
     let captureSession = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput!
     let photoOutput = AVCapturePhotoOutput()
@@ -25,8 +16,6 @@ class CameraViewController: UIViewController {
     let sessionQueue = DispatchQueue(label: "session queue")
     let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera, .builtInWideAngleCamera, .builtInTrueDepthCamera], mediaType: .video, position: .unspecified)
     
-    
-
     @IBOutlet weak var photoLibraryButton: UIButton!
     @IBOutlet weak var previewView: PreviewView!
     @IBOutlet weak var captureButton: UIButton!
@@ -137,6 +126,7 @@ class CameraViewController: UIViewController {
             let setting = AVCapturePhotoSettings()
             self.photoOutput.capturePhoto(with: setting, delegate: self)
         }
+        
     }
     
     
@@ -149,12 +139,21 @@ class CameraViewController: UIViewController {
                 }, completionHandler: { (_, error) in
                     DispatchQueue.main.async {
                         self.photoLibraryButton.setImage(image, for: .normal)
+                        self.pushFilterView(image: image)
                     }
                 })
             } else {
                 print(" error to save photo library")
             }
         }
+    }
+    
+    func pushFilterView(image : UIImage) {
+        guard let filterVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as? FilterViewController else {
+            return
+        }
+        filterVC.image = image
+        self.present(filterVC, animated: true)
     }
 }
 

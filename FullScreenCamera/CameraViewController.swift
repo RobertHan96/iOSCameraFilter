@@ -37,6 +37,16 @@ class CameraViewController: UIViewController {
         setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        previewView.session = captureSession
+        sessionQueue.async {
+            self.setupSession()
+            self.startSession()
+        }
+        setupUI()
+    }
+    
     func setupUI() {
         photoLibraryButton.layer.cornerRadius = 10
         photoLibraryButton.layer.masksToBounds = true
@@ -98,6 +108,7 @@ class CameraViewController: UIViewController {
                 }
             }
         }
+        self.stopSession()
     }
     
     func updateSwitchCameraIcon(position: AVCaptureDevice.Position) {
@@ -152,8 +163,10 @@ class CameraViewController: UIViewController {
         guard let filterVC = self.storyboard?.instantiateViewController(withIdentifier: "FilterVC") as? FilterViewController else {
             return
         }
-        filterVC.image = image
+        filterVC.originImage = image
+        self.modalPresentationStyle = .fullScreen
         self.present(filterVC, animated: true)
+    
     }
 }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,43 +11,41 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterPreViewCell" id="gTV-IL-0wX" customClass="FilterPreViewCell" customModule="FullScreenCamera" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="338" height="232"/>
+            <rect key="frame" x="0.0" y="0.0" width="511" height="332"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="338" height="232"/>
+                <rect key="frame" x="0.0" y="0.0" width="511" height="332"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mqS-AM-0iz">
-                        <rect key="frame" x="151.5" y="29" width="35" height="199"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" image="office" translatesAutoresizingMaskIntoConstraints="NO" id="mqS-AM-0iz">
+                        <rect key="frame" x="-344.5" y="29.5" width="1200" height="294.5"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-2D-YmE">
-                        <rect key="frame" x="151.5" y="4" width="35" height="17"/>
-                        <attributedString key="attributedText">
-                            <fragment content="Label">
-                                <attributes>
-                                    <font key="NSFont" size="14" name="BinggraeII-Bold"/>
-                                </attributes>
-                            </fragment>
-                        </attributedString>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9wj-vN-h4C">
+                        <rect key="frame" x="4" y="8" width="503" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Dgz-2D-YmE" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="31k-dO-pEu"/>
-                <constraint firstItem="mqS-AM-0iz" firstAttribute="top" secondItem="Dgz-2D-YmE" secondAttribute="bottom" constant="8" id="6rZ-dz-A4P"/>
-                <constraint firstItem="mqS-AM-0iz" firstAttribute="trailing" secondItem="Dgz-2D-YmE" secondAttribute="trailing" id="HGp-Zt-yPL"/>
-                <constraint firstAttribute="bottom" secondItem="mqS-AM-0iz" secondAttribute="bottom" constant="4" id="fTK-hy-bij"/>
-                <constraint firstItem="mqS-AM-0iz" firstAttribute="leading" secondItem="Dgz-2D-YmE" secondAttribute="leading" id="iTa-99-CTZ"/>
-                <constraint firstItem="Dgz-2D-YmE" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="jpK-bI-RBa"/>
+                <constraint firstItem="mqS-AM-0iz" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ljh-OJ-1VR"/>
+                <constraint firstItem="mqS-AM-0iz" firstAttribute="top" secondItem="9wj-vN-h4C" secondAttribute="bottom" constant="8" id="Sfb-1r-XmR"/>
+                <constraint firstItem="9wj-vN-h4C" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="Y5V-aB-FvY"/>
+                <constraint firstItem="9wj-vN-h4C" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="cG0-ck-aOt"/>
+                <constraint firstAttribute="trailing" secondItem="9wj-vN-h4C" secondAttribute="trailing" constant="4" id="d9U-fD-tYd"/>
+                <constraint firstAttribute="bottom" secondItem="mqS-AM-0iz" secondAttribute="bottom" constant="8" id="tgw-r9-Svm"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="338" height="232"/>
+            <size key="customSize" width="511" height="332"/>
             <connections>
                 <outlet property="filterImgPreView" destination="mqS-AM-0iz" id="oIl-ZA-Wbr"/>
-                <outlet property="filterName" destination="Dgz-2D-YmE" id="V3L-vX-JdW"/>
+                <outlet property="filterName" destination="9wj-vN-h4C" id="lA5-Yk-wJG"/>
             </connections>
-            <point key="canvasLocation" x="346.37681159420293" y="81.026785714285708"/>
+            <point key="canvasLocation" x="221.01449275362322" y="114.50892857142857"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="office" width="1200" height="583"/>
+    </resources>
 </document>

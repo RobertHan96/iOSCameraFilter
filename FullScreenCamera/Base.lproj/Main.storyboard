@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -114,40 +114,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKl-ie-ldF">
+                                <rect key="frame" x="344" y="64" width="50" height="30"/>
+                                <color key="backgroundColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="VcB-fi-5Wb"/>
+                                </constraints>
+                                <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="imageSave:" destination="2TD-K7-n6y" eventType="touchUpInside" id="PKa-so-v7g"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="joZ-jk-imY">
-                                <rect key="frame" x="20" y="44" width="374" height="404"/>
+                                <rect key="frame" x="20" y="114" width="374" height="538"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7j9-wO-gWV">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="42"/>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Filters">
-                                                <attributes>
-                                                    <font key="NSFont" size="36" name="BinggraeII-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="11b-JQ-NNn">
-                                        <rect key="frame" x="0.0" y="58" width="374" height="346"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="11b-JQ-NNn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="538"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="11b-JQ-NNn" secondAttribute="trailing" id="323-zK-Zz3"/>
-                                    <constraint firstItem="11b-JQ-NNn" firstAttribute="top" secondItem="7j9-wO-gWV" secondAttribute="bottom" constant="16" id="HVa-P9-yeg"/>
+                                    <constraint firstItem="11b-JQ-NNn" firstAttribute="top" secondItem="joZ-jk-imY" secondAttribute="top" id="Ig9-S9-cV7"/>
                                     <constraint firstItem="11b-JQ-NNn" firstAttribute="leading" secondItem="joZ-jk-imY" secondAttribute="leading" id="LwM-oG-euL"/>
-                                    <constraint firstItem="7j9-wO-gWV" firstAttribute="top" secondItem="joZ-jk-imY" secondAttribute="top" id="Ty1-wt-GBY"/>
-                                    <constraint firstItem="7j9-wO-gWV" firstAttribute="leading" secondItem="joZ-jk-imY" secondAttribute="leading" id="Znq-PC-8Xq"/>
                                     <constraint firstAttribute="bottom" secondItem="11b-JQ-NNn" secondAttribute="bottom" id="eO2-uW-PIP"/>
-                                    <constraint firstAttribute="trailing" secondItem="7j9-wO-gWV" secondAttribute="trailing" id="gID-xp-8qT"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Yi4-7i-4uf">
-                                <rect key="frame" x="0.0" y="458" width="414" height="404"/>
-                                <color key="backgroundColor" red="0.45085787770000002" green="0.98829740290000001" blue="0.83763033149999999" alpha="0.54000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nwE-LX-cGb">
+                                <rect key="frame" x="0.0" y="662" width="414" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YPW-x5-2Mi"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nwE-LX-cGb">
                                     <size key="itemSize" width="50" height="80"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -168,21 +167,22 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Yi4-7i-4uf" firstAttribute="height" secondItem="joZ-jk-imY" secondAttribute="height" id="7ir-6d-vMC"/>
                             <constraint firstItem="joZ-jk-imY" firstAttribute="leading" secondItem="HMb-iA-p51" secondAttribute="leading" constant="20" id="90i-9I-oWF"/>
                             <constraint firstItem="HMb-iA-p51" firstAttribute="trailing" secondItem="joZ-jk-imY" secondAttribute="trailing" constant="20" id="C2k-nb-dEj"/>
                             <constraint firstItem="HMb-iA-p51" firstAttribute="trailing" secondItem="Yi4-7i-4uf" secondAttribute="trailing" id="NoF-X7-VzF"/>
                             <constraint firstItem="Yi4-7i-4uf" firstAttribute="bottom" secondItem="HMb-iA-p51" secondAttribute="bottom" id="OFk-e1-o1u"/>
-                            <constraint firstItem="joZ-jk-imY" firstAttribute="top" secondItem="HMb-iA-p51" secondAttribute="top" id="amB-SL-VXZ"/>
+                            <constraint firstItem="HMb-iA-p51" firstAttribute="trailing" secondItem="cKl-ie-ldF" secondAttribute="trailing" constant="20" id="SJo-pV-mTc"/>
+                            <constraint firstItem="joZ-jk-imY" firstAttribute="top" secondItem="cKl-ie-ldF" secondAttribute="bottom" constant="20" id="bxb-KB-ZWg"/>
                             <constraint firstItem="Yi4-7i-4uf" firstAttribute="leading" secondItem="HMb-iA-p51" secondAttribute="leading" id="dQ6-RD-wsJ"/>
+                            <constraint firstItem="cKl-ie-ldF" firstAttribute="top" secondItem="HMb-iA-p51" secondAttribute="top" constant="20" id="dvu-gg-kB9"/>
                             <constraint firstItem="Yi4-7i-4uf" firstAttribute="top" secondItem="joZ-jk-imY" secondAttribute="bottom" constant="10" id="i7f-aq-jlN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HMb-iA-p51"/>
                     </view>
-                    <navigationItem key="navigationItem" id="VJH-Kh-n1T"/>
                     <connections>
                         <outlet property="filterImgPreview" destination="11b-JQ-NNn" id="c0X-c6-WN7"/>
                         <outlet property="filterPreviews" destination="Yi4-7i-4uf" id="zn5-SE-pbX"/>
+                        <outlet property="imageSaveBtn" destination="cKl-ie-ldF" id="tVz-4v-ikZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ft9-TA-n88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
